@@ -5,7 +5,7 @@ async function sha256ToHue(username: string) {
   const salted = username + "-salt4";
   const encoder = new TextEncoder();
   const data = encoder.encode(salted);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashBuffer = await crypto.subtle.digest("SHA-512", data);
   const hashArray = new Uint8Array(hashBuffer);
 
   let hashBigInt = BigInt(0);
